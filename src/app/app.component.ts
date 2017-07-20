@@ -3,6 +3,9 @@ import {Store} from '@ngrx/store'
 import {AppStore} from './app.stores'
 import {Observable} from 'rxjs/Observable';
 
+//  Casing matter ...
+import  * as item from './items/actions/item'
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -21,6 +24,8 @@ export class AppComponent {
       this.selectedItem$.subscribe(log=>console.log(log));  
     }
 
+
+//  start adding this to redux
   addTask(task : HTMLInputElement)
   {
     this.tasks.push({type : 'NORMAL', payload : task.value});
@@ -32,9 +37,6 @@ export class AppComponent {
   }
 
   selectedItem(task) {
-    // console.log(task);
-    // this.selected = task;
-
-    this._store.dispatch({type: 'SELECT_ITEM', payload: task});
+    this._store.dispatch({type: item.SELECTED, payload: task});
   }
 }

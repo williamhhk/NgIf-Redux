@@ -1,4 +1,4 @@
-import { selectedItemReducer } from './_reducers/selectedItem.reducer'
+import { selectedItemReducer } from './items/reducers/selectedItem.reducer'
 
 export interface AppStore {
 	selectedItemState : any;
